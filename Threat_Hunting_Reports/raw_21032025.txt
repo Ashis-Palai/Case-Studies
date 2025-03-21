@@ -1,0 +1,128 @@
+related to https://chatgpt.com/c/67dcda91-44ac-800c-a87d-5884f71e47c0
+*****************************************
+Google Mandiant Threat Intel report - 
+https://cloud.google.com/blog/topics/threat-intelligence/cybercrime-multifaceted-national-security-threat
+https://services.google.com/fh/files/misc/cybercrime-multifaceted-national-security-threat.pdf
+
+above google report redirected to below 
+1)*******************************************
+http://cybersecuritydive.com/news/lee-enterprises-iransomware-data-leak/741380/
+3rd march'25 
+disrupted print, billing , payments 	
+lee enterprise
+  the reports said about a threat group called qilin (cyber crime group ransomware)
+trend micro cyber security software company --- spot qilin's attack
+sentinelOne- cloud based end point protection company
+qilin targets VM/ESXis (linux & windows)
+rebrand of agenda ransomware operation 2022 (https://www.sentinelone.com/anthology/agenda-qilin/)
+golang language , spear phishing , citrix , rdp
+key pattern - change file extension and process and service modification
+ttps - ransomware t1485 t1486
+evasion- t1218 t1202
+sentinelone reports says sleep.exe was the pe file associated
+behavioural indicators - T1083,T1518,T1005,T1119, cred acess T1552.004 , defense evasion - T1480.001
+process enum -  Discovery T1057
+T1518,T1007,T1119,T1480.001(defense evasion) sentinel one restoed the eccypted file
+
+as per https://darktrace.com/blog/a-busy-agenda-darktraces-detection-of-qilin-ransomware-as-a-service-operator
+ - also identifu qilin as ransomeware-as-a-service , its an AI empowered cybersecurity company.
+qilin tagres health care also
+posting data of victim in its dedicated leak sites(tor.qilin) , golanng & rust
+pattern - the file extension being appended, files, extensions and directories to be skipped during the encryption, and the processes and services to be terminated,
+ among others,unique company IDs were used as extensions of encrypted files" 
+
+trend micro cybersecurity comapany anayst first discover ilin sample in august 2022
+
+The panel's background image features the eponym Chinese legendary 
+chimerical creature Qilin (pronounced “Ke Lin”). Despite this Chinese 
+mythology reference, Russian language was observed being used by a Qilin operator in 
+an underground forum post aimed at hiring affiliates and advertising their RaaS operation[2
+
+Summary of the Attack Flow June 2022
+Initial Access – Attacker compromises VPN via stolen credentials or vulnerability.
+Lateral Movement – Gains access to SCCM via RDP.
+Privilege Escalation & VM Targeting – Targets VMware ESXi, encrypts VMs, and changes root passwords.
+Detection & Response – Security team notices VM reboots; Darktrace gets involved.
+Post-Compromise Analysis – Darktrace detects network scanning, malware (SystemBC & Tofsee), and external connections to C2 infrastructure.
+Ransomware Execution – Attackers encrypt systems and leave ransom notes.
+
+Summary of Attack Flow April-2023
+Initial Reconnaissance – Attackers performed network scanning to map targets.
+Lateral Movement – Attackers attempted to spread through SMB, DCE-RPC, and RDP.
+Compromising the Domain Controller – Attackers issued WMI requests and enumerated SMB shares for further exploitation.
+C2 Communication – Attackers connected to 184.168.123.0/24, using tools like Cobalt Strike and WebDAV.
+Data Exfiltration – 30GB of data was stolen using MEGA cloud storage over SSL.
+Possible Ransomware Execution – Encryption likely occurred outside monitored network segments.
+
+Quick Summary of May 2024 Qilin Ransomware Attack
+Initial Access: Attackers used default/admin credentials to access internal systems.
+Lateral Movement: Compromised devices performed network scanning, DCE-RPC requests, 
+internal RDP connections, and SMB file writes (e.g., "LSM_API_service" for token theft).
+Malware Execution: Suspicious executables (a157496.exe, 83b87b2.exe) were transferred internally, 
+and PowerShell downloaded a malicious DLL (sihost64.dll) from a domain controller.
+C2 Communication:
+HTTP/SSL traffic to rare external endpoints linked to Cobalt Strike.
+HTTP GET requests for /download/sihost64.dll and other suspicious URIs.
+Massive Data Exfiltration:
+Over 102 GB transferred via unencrypted FTP to IP: 194.165.16[.]13.
+An additional 783 GB exfiltrated over other protocols.
+No Ransomware Encryption Observed: Attack focused on data theft over encryption, potentially for extortion.
+Attribution: IoCs matched Pistachio Tempest, a financially motivated cybercriminal group known for ransomware, data exfiltration, and extortion.
+
+complement about qilin
+“They conduct extensive reconnaissance, disguise their communications with encryption certificates to appear legitimate, 
+and carefully choose exactly what to steal before launching the final attack.”
+**********************************************************************
+2) INC ransomware -extortion group
+https://cyble.com/threat-actor-profiles/inc-ransom/
+
+also known as gold ionic , ransomware and data extrotion group (since july 2023)
+uses adfind(info stealer),PsExec(remote command tool), R clone(cloud storage tool)
+target sectors - aerospace and defense, automotive, agriculture and livestock, energy and utilities, healthcare, government and law enforcement, pharmaceuticals and biotechnology, technology and IT services, telecommunications, and transportation and logistics.  
+
+uses below ttps------
+Initial Access: Exploits public-facing vulnerabilities (e.g., CVE-2023-3519 in Citrix NetScaler) or uses phishing attacks to deliver malicious payloads.
+
+Execution: Uses tools like WMIC, Windows Command Shell, and Service Execution to deploy ransomware discreetly, bypassing security controls.
+
+Persistence & Evasion: Maintains access using compromised valid accounts; disables security features (e.g., Windows Defender) 
+via SystemSettingsAdminFlows.exe; renames malicious files to mimic legitimate ones (e.g., PsExec as “winupd”).
+
+Discovery: Conducts network reconnaissance using NETSCAN.EXE, RDP for connection testing, and domain enumeration to identify admin accounts.
+
+Lateral Movement: Uses RDP and Lateral Tool Transfer to spread ransomware across the network for widespread disruption.
+
+Data Collection & Exfiltration: Archives stolen data with 7-Zip/WinRAR and uploads it to cloud storage (e.g., Megasync) for extortion leverage.
+
+Impact: Encrypts critical data, demands ransom for decryption, and threatens data exposure to pressure victims into paying quickly.
+
+tools used - tor , mega async , also few tools mentioned previously below point 2)
+
+underground forum - RAMP forum -- https://www.rapid7.com/blog/post/2024/08/20/selling-ransomware-breaches-4-trends-spotted-on-the-ramp-forum
+another ransomware group called "Groove" -- https://flashpoint.io/blog/ramp-ransomware-chinese-threat-actors
+
+two more forums - xss and Exploit -- https://webz.io/dwp/all-about-ramp-ransomware-forum
+as per webz.io(dark web data provider)  --- Some of the APT groups that either used or are still using the XSS forum are Lockbit, REvil, Avoslocker, EternityTeam, Babuk, Darkside
+
+Examples of Notorious Data Leak Sites:
+🔹 LockBit DLS – Used by the LockBit ransomware group.
+🔹 ALPHV/BlackCat DLS – Features stolen data and a search function.
+🔹 Cl0p DLS – Used for extortion after exploiting vulnerabilities like MOVEit.
+*************************************************************
+3) conti leaks - ransomeware group private communication leaked by ukrain reseracher
+  conti is the ransomeware - https://attack.mitre.org/software/S0575/
+   firewalker also a group using two variants of ransomeware Akira and FOULFOG(no data im MITRE ttps db)
+akira - https://attack.mitre.org/software/S1129/
+
+financial motivated group examples as below: 
+
+PHOBOS ransomeware - https://attack.mitre.org/techniques/T1218/014/
+ALPHV/BlackCat -- https://attack.mitre.org/software/S1068/
+ROYALLOCKER, BLACKSUIT - https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-061a
+fin7- https://attack.mitre.org/groups/G0046/
+ta505 - https://attack.mitre.org/groups/G0092/
+
+espionge-motivated group APTs as below :
+apt29 - https://attack.mitre.org/groups/G0016/
+apt41 - https://attack.mitre.org/groups/G0096/
+
