@@ -1,0 +1,96 @@
+https://chatgpt.com/c/67de2dea-5564-8002-b81b-379449f359f6
+threat hunting learning approach 
+*********************************
+reports from---
+-mandiant
+-https://www.secureworks.com/resources?tags=Report&sortBy=MostRecent
+-https://thedfirreport.com/category/ransomware/
+- https://www.bleepingcomputer.com/
+**************************
+integrate into---
+- https://www.misp-project.org/ (malware info sharing platform)
+       an open source software solution for collecting, storing, distributing and sharing cyber security indicators and threats about cyber security incidents analysis and malware analysis.
+
+- OPEN CTI(mapping with APTS and their TTPS)
+      used for integrating, storing, managing, and sharing cyber threat intelligence (CTI). The main purpose of the OpenCTI platform is to provide a powerful knowledge management database with an enforced schema especially tailored for cyber threat intelligence and cyber operations.
+*******************************
+Intel details from Telegram---
+
+- CVE details a databse  :https://www.cvedetails.com/
+- https://www.securityweek.com/
+      SecurityWeek.com is a cybersecurity news, information, and analysis website providing timely updates and insights from industry experts to help cybersecurity professionals stay informed and defend against cyber threats. 
+- Threat exchange platform : https://otx.alienvault.com/
+**************************************
+Hands-On Labs & Tools
+MITRE CALDERA / Atomic Red Team – Simulate adversary TTPs.
+
+ELK / Splunk / Sentinel / Velociraptor – Hunt for attack traces.
+
+Cyber Threat Intelligence Platforms (OpenCTI, MISP) – Manage intelligence data.
+
+Hybrid Analysis / Any.Run / Intezer – Analyze malware related to APTs.
+************************************
+Research & Contribution
+Write detection rules (Sigma, YARA).
+
+Contribute to threat intel platforms.
+
+Share hunting methodologies in blogs or CTF platforms.
+**************************************
+learning on MITRE TACTICS(TA0003) called Persistence (20) techniques and several sub techniques
+https://attack.mitre.org/tactics/TA0003/
+***************************************
+1- Technique -Account Manioulation 
+*************************
+1.1- sub tech  -https://attack.mitre.org/techniques/T1098/001/ (additional cloud credentials)
+----------------
+case studies for aws 
+by adding SSH keys mostly , exploiting unused IAM users in AWS account , cloud trail logs can help to detect
+https://expel.com/blog/finding-evil-in-aws/ (expel a leading managed detection and response provider , threat hunter)
+https://expel.com/blog/following-cloudtrail-generating-aws-security-signals-sumo-logic/
+https://expel.com/blog/behind-the-scenes-expel-soc-alert-aws/ (case studies related crypto miner spinning large EC2 instances using custom created SSH keys)
+-------------------------
+case studies for solarwind , AZURE AD
+
+manipulation in federation domains (federation trusts),OAuth Apps and Service Prinipal credentials
+https://msrc.microsoft.com/blog/2020/12/customer-guidance-on-recent-nation-state-cyber-attacks/
+
+the above is related to the famous solarwind supply chain attack with SUNBRUST back door and TERADROP loader for persistence 
+https://cloud.google.com/blog/topics/threat-intelligence/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor
+mitigation YARA rules - https://github.com/mandiant/sunburst_countermeasures
+
+one more article on Azure AD prev escalation - https://posts.specterops.io/azure-privilege-escalation-via-service-principal-abuse-210ae2be2a5
+
+legacy app not working with MFA using app password instead can be vreached as app password wont be reset with normal password change
+https://learn.microsoft.com/en-us/entra/identity/authentication/howto-mfa-app-passwords
+-----------------------------------
+rhino lab(company pentests aws hosted application )
+https://rhinosecuritylabs.com/aws/aws-privilege-escalation-methods-mitigation/ - (how the attacker can gain access and privilege escalation with diffrent ways possible)
+https://github.com/RhinoSecurityLabs/Security-Research/blob/master/tools/aws-pentest-tools/aws_escalate.py (privilege escalation vulnerability finder in aws) 
+------------------------
+https://sysdig.com/blog/scarleteel-2-0/ (sysdig is a CNAPP cloud native application protection platform , cloud threat detection, container,kbn8s )
+Scarleteel- a cryptominer using cloud to escate privilege and gaining persistence  
+sample scripts by attacket to steal credential , exfiltrate data , clearing evidense and logs etc --- https://github.com/unknownhad/CloudIntel/blob/main/2023/01/10-01-2023
+new exfiltration methos --- using termbin.com to exfiltrate data rather than c2
+imds (Instance meta data service) V1 is vulnerable than V2 as session token not being used.
+pacu - open surce cloud expoitation framework (prev esc and post exploitation)
+also imdsv2 has a feature called hop limit , which set to 1 means only from C2 native can request not even from container request can be made as hop count will change 
+
+a tool called peirate --- https://github.com/inguardians/peirates used to pen test kbn8s and can be used as exploitation kit
+naming convention with admin_x , admin_y is a potential bypass techniq	
+-----------------------------
+sts:Getfederationtoken API call to create temp set of credential -- https://www.crowdstrike.com/en-us/blog/how-adversaries-persist-with-aws-user-federation/
+federated session credential are still there even if associated IAM base user credentials are deactivated	
+simply deactivating the IAM user is not enough as though federated session this can be manipulated
+------------------------------------------------
+https://cloud.google.com/blog/topics/threat-intelligence/untangling-iran-apt42-operations
+
+APT 42 posing as journalist and event manger , social eng to get credentials (realted to IRAN middle east & tageting NGOS and govnt) 
+back doors used - NICECURL(VBscript based) & TAMECAT	
+credential harvesting through spher phising , fake website , fake microsoft/google login page
+IOCS - domain releted to APT42 - ksview.top, n9.cl, review.modification-check.online , nterview.site , admin-stable-right.top, shortlinkview.live
+------------------------------------
+attack campaign used this sub-technique (C0027)- https://www.crowdstrike.com/en-us/blog/analysis-of-intrusion-campaign-targeting-telecom-and-bpo-companies/
+pacu the cloud explotaion tool written in python (can generate SSH key , and API keys) - tool/software used this sub-technique - https://github.com/RhinoSecurityLabs/pacu 
+_----------------------------------------------------------------
+Mitigation & Detection under Mitigation and detection section - https://attack.mitre.org/techniques/T1098/001/
