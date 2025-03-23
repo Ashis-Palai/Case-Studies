@@ -1,0 +1,165 @@
+CONTI RANSOMWARE:
+ref1- https://www.cybereason.com/blog/research/cybereason-vs.-conti-ransomware
+ref2 - https://thedfirreport.com/2021/11/29/continuing-the-bazar-ransomware-story/
+            ref2.sub-https://www.secura.com/blog/zero-logon -- CVE-2020-1472 (zero login checker - https://github.com/SecuraBV/CVE-2020-1472)
+             bazarloader --> conti ransomware (https://thedfirreport.com/2021/10/04/bazarloader-and-the-conti-leaks/)
+             conti leaked technical manual - https://therecord.media/disgruntled-ransomware-affiliate-leaks-the-conti-gangs-technical-manuals
+
+ref3 - https://www.crowdstrike.com/en-us/blog/wizard-spider-adversary-update/
+       threat actor WIZARD SPIDER (used Ryuk ransomeware initially then switched to Conti)
+
+
+https://www.crowdstrike.com/en-us/cybersecurity-101/threat-intelligence/threat-hunting/#:~:text=Threat%20hunting%20is%20the%20practice,your%20initial%20endpoint%20security%20defenses.
+
+
+
+--------------------
+crwodstrike therat hunting report 
+
+- RMM(remote monitoring and management tools) are being used , anydesk, teamviewer, atera(cloud based), screenconnect, zoho assist. Goto assist, Splashtop etc
+- Identiity based attack , using federate sessions , SAML , Gold , Silver ticket , admin access 
+
+
+https://www.crowdstrike.com/en-us/cybersecurity-101/ransomware/big-game-hunting/
+
+
+--------------------------
+learning cloud threat hunting and intel
+
+1. Understand Cloud Fundamentals
+Start with the basics of cloud computing before diving into threat intelligence. Key areas include:
+
+Cloud Service Models: IaaS, PaaS, SaaS
+
+Cloud Deployment Models: Public, Private, Hybrid, Multi-cloud
+
+Major Cloud Providers: AWS, Azure, Google Cloud (GCP)
+
+Identity & Access Management (IAM): Permissions, roles, MFA, federated identity
+
+Networking in the Cloud: Virtual Private Cloud (VPC), Security Groups, Firewalls
+
+Cloud Security Best Practices: Shared responsibility model, encryption, logging
+
+Recommended Learning Paths:
+
+AWS Certified Cloud Practitioner
+
+Microsoft Azure Fundamentals (AZ-900)
+
+Google Cloud Digital Leader
+
+Cloud security fundamentals from CSA (Cloud Security Alliance)
+
+2. Learn Cloud-Specific Attack Techniques
+Once you understand cloud infrastructure, start exploring real-world cloud attack techniques:
+
+Identity-Based Attacks: MFA fatigue, session hijacking, privilege escalation
+
+Persistence Techniques: Adding federated domains, backdooring IAM roles
+
+Cloud Enumeration: Querying instance metadata, scanning cloud resources
+
+Data Exfiltration: Leveraging cloud storage (S3, Azure Blob) for data theft
+
+Control Plane Attacks: Exploiting management APIs (AWS CLI, Azure CLI)
+
+Lateral Movement in Cloud: Using VMs, containers, and IAM role chaining
+
+Cloud-to-On-Prem Pivoting: Moving from cloud to internal corporate network
+
+Practical Hands-on Labs:
+
+Use Flaws.cloud (AWS misconfigurations)
+
+Azure Security labs (Microsoft Defender for Cloud)
+
+Google Cloud security exercises (Qwiklabs)
+
+Open-source tools: Pacu (AWS attack simulation), PMapper (AWS privilege escalation)
+
+3. Master Threat Intelligence & Hunting in the Cloud
+Cloud hunting differs from traditional endpoint hunting. You’ll focus on:
+
+Cloud Telemetry & Logs:
+
+AWS: CloudTrail, GuardDuty, IAM Access Analyzer
+
+Azure: Entra ID (formerly Azure AD) logs, Defender for Cloud
+
+GCP: Cloud Logging, Security Command Center
+
+TTPs of Cloud Adversaries:
+
+SCATTERED SPIDER: Abusing federated IdPs, exfiltrating cloud secrets
+
+COZY BEAR: Targeting Azure, stealing M365 emails
+
+LAPSUS$: MFA fatigue attacks, social engineering
+
+Threat Hunting Techniques:
+
+Query logs for suspicious IAM activity (unexpected logins, role escalations)
+
+Look for anomalous API calls (mass downloads, permission changes)
+
+Monitor cloud storage for unauthorized access
+
+Detect lateral movement within the cloud & hybrid environments
+
+Tools for Cloud Threat Hunting:
+
+Sigma Rules: Use detections for cloud security events
+
+CrowdStrike Falcon / SentinelOne: EDR with cloud visibility
+
+AWS Security Hub / Azure Sentinel / Chronicle SIEM: Cloud-native SIEMs
+
+BloodHound for Azure (AzureHound): Mapping cloud privilege escalation paths
+
+4. Work on Real-World Case Studies
+To solidify your learning, analyze actual cloud attacks and create reports:
+
+Study Incident Reports: Look at CrowdStrike, Mandiant, CISA threat reports
+
+Write Attack Simulations: Simulate adversary techniques in a lab (Purple Teaming)
+
+Practice Threat Intel Research: Track APT groups and their cloud attack trends
+
+5. Build Your Cloud Threat Hunting Portfolio
+Document cloud attack techniques you’ve tested in your lab.
+
+Create detection rules based on TTPs (MITRE ATT&CK Cloud Matrix).
+
+Contribute to open-source security research (e.g., Sigma rules for cloud threats).
+
+Share insights on LinkedIn, Medium, or GitHub.
+
+6. Advance to Cloud Incident Response & Defense
+Learn cloud forensics: Analyzing logs, memory dumps, compromised instances
+
+Explore automated response: AWS Lambda, Azure Logic Apps for security automation
+
+Implement cloud security policies: Least privilege, zero trust, security controls
+
+Final Advice for Swift Transition
+Set up a cloud lab (AWS free-tier, Azure sandbox, GCP trial)
+
+Follow cloud threat reports (CrowdStrike, Mandiant, Microsoft)
+
+Engage with the security community (Twitter, LinkedIn, Discord, blogs)
+
+Get hands-on with cloud security challenges (CTFs, PurpleLabs)
+
+CLOUD Security  learning references
+---------------------------------------
+https://www.youtube.com/watch?v=ep4PzMw5Okg
+https://www.offsec.com/learning/paths/introduction-to-cloud-security
+https://www.cloudskillsboost.google/focuses/2794?parent=catalog&path=15
+https://learn.microsoft.com/en-us/training/topics/sci?utm_source=chatgpt.com
+https://github.com/quiccklabs/Labs_solutions/blob/master/Implement%20Cloud%20Security%20Fundamentals%20on%20Google%20Cloud%20Challenge%20Lab/GSP342.md?utm_source=chatgpt.com
+https://www.linkedin.com/pulse/crafting-your-first-cyber-security-lab-beginners-guide-pasumpon-wml0c/
+https://dev.to/aditya8raj/building-a-home-lab-for-cybersecurity-practice-a-step-by-step-guide-31id?utm_source=chatgpt.com
+https://blog.davidvarghese.net/posts/building-home-lab-part-1/?utm_source=chatgpt.com
+https://github.com/iknowjason/Awesome-CloudSec-Labs?utm_source=chatgpt.com
+
