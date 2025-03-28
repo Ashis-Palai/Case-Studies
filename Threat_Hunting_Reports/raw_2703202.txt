@@ -1,0 +1,153 @@
+Threat Actor Profiling
+Executive summary
+Overview
+Victimology (who are the victims locations etc)
+APT41 (additional information url ref)
+Threat Activity 
+   ex- used DUSTPAN and BEACON, dustrap etc
+    terat artifcats , dll used 
+     called functions , various operations
+     basically how the operations at different stages of tactics
+
+MITRE ATTACK Refrence Mapping with Tactics , Techniques , Sub Techniques and procedure
+
+IOCS at various attacks
+     Host based
+     Network based
+
+Hunting with Yara Rules
+    all possible hunting rules for all variants of droppper , packer , loader , exfiltration etc
+----------------------------------------------
+LLM set up 
+
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y git python3 python3-pip curl wget
+sudo apt install -y build-essential (Install build-essential (for compiling llama.cpp))
+sudo apt install -y cmake g++ (Install cmake and g++ (required for compiling llama.cpp))
+
+git clone https://github.com/ggerganov/llama.cpp.git (Clone the llama.cpp Repository)
+
+
+sudo apt update && sudo apt install -y cmake build-essential
+cd llama.cpp && mkdir build && cd build
+
+cmake .. (refer to llama.cpp as parenet folder and refer to CMakeLists.txt for building process )
+cmake --build . --config Release 
+
+cmake --build . ------->(Builds the project from the build directory (. refers to the current directory).)
+--config Release ------> Ensures the build is optimized for performance (faster execution, smaller binary size).
+
+htop  (cpu memory usage)
+df -h (disk memory)-
+--------------------------------------------------------
+manual observations what we need
+
+- we need to capture all essential information from the pages
+    CVES , CWES, TTPS , Technology , 
+
+- extarcted urls(white papers, blogs , articles) contains .pdf which contains , figures containing attack flow and 
+          code inside the figure which are useful information
+- need to focus on headings of the page or documents for use ful information 
+- need to extarct different section contains different details(functional , technical) about the group
+- need to get the technical details along with all possible codes , pocs , deassembler, decompiler code etc etc 
+- need to gather all tools used , and try to underatsnd all new tools,platform , process , all technical terms  
+- inside report , facts are being refered from other popular reports  we can extract that also , referel urls related threat actor
+- heading extraction , related to prevention and security measure need to be given more importance
+- Pdf tables containing useful information also pdf files contains more pages(we can break and create multiple chunk of the whole pdf)
+- headings, subheadings, figure, tables , technical codes , code blocks
+-----------------------------------------------------
+- techniques with code and proof , can be also mapped to MITRE TTPs
+- after getting technical details also need to deep dive into step by step implementation 
+                        these details can be included in deep technical section 
+- Extracted adat from differenet sites can overlap so need unique details with out loosing any data
+- data need to be cross verfiifed for technical eveidences also , same code , same process , same files , same IoCs need to be filtered with out loosing unique details
+--------------------------------
+background   (2021)                                                                                                
+                                                                                                                          
+attack vectors                                                                                                      
+      Exploitation of ms exchange server vul
+      possible email vector
+      installutil.exe via scheduled task
+
+
+Technical Analysis of the loader                                                                                   
+      Stealth Mutant
+      stealth vector
+      configurable features
+         diabling event tracing for windows
+         context awareness
+         logic to determine payload Location
+         self uninstallation
+      Shell code execution techniques
+          execution using create thread
+          modue stoming in local process
+      bypassing and process hallowing
+
+Technical Analysis of the payloads
+      cobalt strike beacon
+      scrambleCross or Refactorred crosswalk
+
+Attribution (signs of the theart actor)
+      Useof install.bat
+      CodeSimilarty to shell code loadder observed earlier or from other reports as well
+      Techniques similarity to crosswalk
+
+Conclusion and Security Recommendations
+
+Appendix
+  Table MITRE TTPS
+  IoCs
+  BAT luncher files
+  Stealth Mutant and Payloads (hash, detection(Backdoor.Win64.COBEACON.ZYIF.enc), infraused)
+  Stealth Vector (hash,Detection(Trojan.Win64.STEALTHVECTOR.SMZTID-B))
+  Domain IP address
+  Cobalt strike configuration (with image containg code)
+
+References
+
+
+------------------------
+Executive summary 2024 
+ 
+Overview(attack path diagram)
+
+Victimology (Targeted Industry also)
+
+Thrat Activity
+  Dustpan (loader 2022)
+  Dustpan configured to load BEACON payload (chacha 20 encryption)
+  DUSTTRAP (multi stage pulgin framework, begins with a luncher)
+  details technical (file operation ,shell operation , process operation)
+                   types and names of dll loaded
+                   netwrok probing
+                   screen operations 
+                   system info survey
+                   file manilullation operation
+                   key logger
+                   active directory operation
+                   DNS , RDP , REgistry operation
+       DUSTRAP EXECUTION FLOW DIAGRAM
+
+   SQLULDR2.exe to exfiltarte data from oracle
+   Pine Grove tool to exfiltarete data
+   stolen code signing certificate
+
+MITRE reference for TTP (Tabular format)
+
+Indicator of Compromise
+  Host based
+  Network based
+  
+TOOS USED
+RELATED CVES
+INFECTION VECTORS
+
+
+Security Recommendations
+  YARA RULES
+  relevant Yara rules
+
+References
+
+--------
+can we extract , embedded link in the website and few words before it to captute its context
