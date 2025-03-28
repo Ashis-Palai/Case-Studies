@@ -1,0 +1,25 @@
+https://attack.mitre.org/techniques/T1078/004/ (valid accounts cloud accounts)
+1) Cloud hosted Public facing apps 
+------------------------------------------
+2)remote service - software deployment tools (AWS system Manager)
+     system session manager , associated with any resource create a separate user (ssm-user(root/admin privilege))
+      /ete/sudoers
+      windows-admin group
+-------------------------------------------
+3)Create login profile API in AWS to add a password that can 
+be used to log into the AWS Management Console for Cloud Service Dashboard.
+Tacttics-Discovery--> Techniques (https://attack.mitre.org/techniques/T1538/)
+ex1- https://www.lacework.com/blog/detecting-ai-resource-hijacking-with-composite-alerts
+ex2- https://permiso.io/blog/lucr-3-scattered-spider-getting-saas-y-in-the-cloud
+
+ex1:
+reconn --> privilege escalation --> aws management console --> resouce hijacking of aws bedrock
+https://attack.mitre.org/techniques/T1496/ (tact- Impact, Technq- Resource Hijacking)
+
+attachUserPolicy API
+CreateLoginProfile
+sub concept llm hijacking - https://sysdig.com/blog/llmjacking-stolen-cloud-credentials-used-in-new-ai-attack/
+
+ (e.g., OpenCTI, ThreatConnect, Anomali, MISP)
+
+therat infrastructure used by therat actors
