@@ -1,0 +1,220 @@
+
+THE Diamond Model ::
+
+
+
+Event contains below 
+-adversary , victim, infra , capability
+-meta data - Time start end , phase , result , direction , methodology , resources
+---------------------------------
+
+victim --- organisation , host ip , host name, host application exploied , tcp port used for exploitation
+adversary - adverary operator , adversary customer(who got benifits from this action), both may or may not same, 
+capabilities - tool sand techniques
+               ---capability capacity (all possible exploitation of vuls)
+               --- Capability arsenal (c2 channels, etc)
+
+infrastructure - type 1(physical proximity) , 
+               -type 2 (indirect host , doamin , mail,obfuscated resources etc),
+               - service provider (wittingly or unwittingly provide service e.g internet to adversary)
+victim --- victim persona (industry , organisation , entity , person)
+           victim asset (end point, mail , ip , cloud storage etc)
+           victim susceptibility (exploitations options for adversary to exploit)     
+
+
+meta features
+date nd time - time based analysis
+phases - 2 or more phases , initial gain , privilege esca , data exfil , etc
+results -  (success , failure, unknown) //(C I A compromise) // 
+direction - 7 dierctios (vic-infr , infr-victm , adv-infr , infra-adv , bi , infra-infra , unknown)    
+methodology - sphear phishing , content delivery , user -redirectional exploit
+
+resources - software, knowledge , funds, informmation(username/pass), hardware(workstations, srevers, modems)
+                 facility (electricity , shelter), Acccess thrugh network to connect to victim(ISP )     
+
+for quality control , we can expand mete featires
+ - author, detection tool , detection signature, , data source which helps in detection etc
+
+
+extrended dimaond model
+victim-adv (socio-political)
+infra- capa (technology)
+  
+persistent adversary metrics
+victim - adver -relation (victim of interes (enduring/long period)t, victim of opportunity (fleeting/short period))
+cyber-victimology (why particular enity victimise, common victims, next victims , detective mind set)
+
+shared threat space - common space for victims to be targeted by victims (CTI can be helpful)
+
+
+Technology (infra to capability)
+http, ip , dns etc
+
+analytics pivoting-  one findings lead to discover other features and its details , ex- victim discovers Malware --> c2---> ip-->adversary  
+
+
+victim centered approach - focus on or decoy on victim to capture adver technology or method
+
+capability centered apprcoach - find the patterns , detailsed investigation , encrypttion , c2 channel etc which can be pivoted to other
+                                   capability --> infra , infra --> more victims , 
+
+infra centered appraoch - known ip and related todomain and other ips, infra --> adversaries , infra --> capability etc
+
+adversary ceneterd approach -  track the know adver directly to identify or mitigate therat
+
+social -political centered -  adver - victm releation ship (who may be the victim and who are their adversaries)
+
+technology centered - monitor dns for anomalies
+
+Activity therad - Model fearures with arcs and releation ships between various stages/events of attack with confidence high or low , and steps dependancy with OR AND etc
+                  Vertical (adv-victim) , Horizonatl (multiple victims)
+
+arcs - based on  (confidence,And/Or,Hypothetical/Actual,Provides(for resources))
+
+activity therad graph - definite attacked scenario happened already
+attack grpah - all possible attach paths that could happen
+
+
+Activity Group means - set of diamond events , with activity threads  
+
+groups=ing contains 
+1.Analytic problem
+2.Feature selection
+3.Creation
+4.Growth
+5.Analysis
+6.redefinition
+7.activity group family
+
+1.Analytic problem
+
+- how the activity changed over time , current vector for the adversry
+- intent of thr adversry
+- attribution ,means which events and threads
+- complete set of capability and infra of adversery
+- cross capability verification , (bcse mutli adversries can use same capability)
+- knowledge gap of the organization towards adversry campaign
+- automated mitigatiion based on adversary
+- identify advrsry based on  capabi
+- which resources and process are common to idnetify activity and campaign
+
+------------------
+2. feature selection: features with weightage aiming for analytic problem for intelligence
+
+feature space - means all possible or included features
+feature vector - selected features with weights to priorotize specific grouping
+analytic problem - ex - which adversary can use these feature vector? 
+outcome - based on right feature vector , analytic problem is solved now
+
+---------------
+3. Craetion : (creating groups based on feature vectors created using grouping function)
+
+
+AGS = AGC(PR,FV,ET) 
+AGS --> collections of groups (set of groups)
+AGC --> function or model to help with creation
+PR --> analytic problem
+FV --> Featire vector 
+ET --> set of (threads and events)
+
+--------------------
+4. Growth: Newly events came so growth of events leads to modification or newly cerated groups
+
+-------------
+5. Analysis: 	examine groups with tools beyonddimaond model , like MITRE TTPS , sand box reports , etc
+
+---------
+6. redefinition : validate the outcome , checking for overfittinga and underfitiing issues
+---------------
+7. Activity group families: clusters the groups to find its orginin may be groups are part of broder family
+
+
+Benifits of Diamond Model:
+
+1)It complements JIPOE (USA DEFENSE)  by considering multiple factors such as 
+  -- Intelligence gap (identifying missing event feature, phase gaps etc)
+  -- adversary model development (process,tactics and infra etc)
+  --infra and capabilities 
+  -- identify center of gravity (activity groups)
+  -- adversary objectives (diamond model's victimology)
+  -- COA , likely course of action (attach graphs which helps all possible paths)
+
+2) Combining with KILL chain gives plan to mitigate the therat
+  -- each phase corelated to kill chain we can implement strategies to Detect , Deny , Disrupt , Degrade, Decieve , Destroy the attack
+
+3) Vulnerability identification became easy , Gaming of attack scenarios makes defense future ready and stronger than before , hypothesis testing also helpful with the Model
+
+
+---------------
+Mode of Improvements
+
+1) Automation , integration with diffrent sources , network logs , threat intel blogs papers etc
+2) Automated tools can generate hypothesis and test accordingly
+3) Contextual indicators integration helps in classificaton
+4) redefine feature vectors adversaries behaviour, infra , capabilities etc need to be re evaluate to aid in quality data
+5) attack graphs inegration with pen test and vulnerability management
+6) Like co evolutionary , prey and predetor model , we need to consider this as evolving in nature so activity threads should be redefined like chromosome , so we need genetic alogorithms
+
+
+
+References :
+https://github.com/tidalcyber/cyber-threat-profiling
+https://www.activeresponse.org/wp-content/uploads/2013/07/diamond.pdf
+Veris Frame Weok (Vocabulary for Event Recording Info Sharing)
+
+https://verisframework.org/ (https://github.com/vz-risk/veris)
+
+https://threatconnect.com/
+https://stixproject.github.io/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
