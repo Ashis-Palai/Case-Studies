@@ -1,0 +1,91 @@
+MITRE ATT&CK:
+
+- CAR - Cyber analytics repository also useful anallytcal tool
+
+USE CASES--
+---------------------
+- Adverary enumlation - Test like attacked by various therat actors , strengthen defensive measure
+- Red Teaming - Attack strategy to evade defense , reserach to find new ways to perform attack
+- Behaviourial Analytics developement - beyond traditional IOCs , practice with behaviour of Threat profiles (CAR acn be a good starting point for this type of practice)
+- Defense gap analysis - Blind spot detection which can be further exploited, Security products can be tested against the frame work's defense strategy before buying
+- SOC defense assesment
+- Threat Intelligence knowledge enrichment (what is my organization defense against threat groups? , Which techniques re common to multiple actors etc can help enhance the intelligence on threat) 
+
+
+
+ATT&CK MODEL:
+-----------------
+1. attack Matrix - Visualisation form and relationship between tactics , techniques and sub techniques
+2. Tech domain - enterpprise , mobile , industry control systems etc , platforms inclused , windows , mac , linux , aws , azure AD , gcp, SaaS , etc
+3. Tactics - The WHY of the attack to perform an objective e.g initial access for foothold , Execution for payload delivery etc
+4. Techniques & Sub-techniques : How and What of the tactics , eg. OS Crdentialdumping - has multiple sub techniques , SAM account dum , MS AZURE AD comperomise , etc/password in linux , LSASS memory etc are the sub techniques
+
+
+4.1 - Procedures - Contains the ACTION with tool/software used by adversaries consists of multiple techniques and sub techniques 
+               ex - APT 28 used powershell(techniqueand subtechnique T1059.001) to inject inside lsassa.exe process (process injection , T1055) by dumping LSASSA memory (LSASSA memory dump T1003.001)    
+
+
+
+4.2 sub techniues:
+      - sub techniques does not follow one to many mapping 
+      - each sub technique is part of unique technique
+      - few subtechniques can be part of more than one tactics (sheduled task can be part of persistance and privilege escalation tactics)
+      - technique like MFA aunthentication bypass , c2 , are OS agnostics so having multiple subtechniqques for different OSes dont make any sense
+      - Mitigation and detection from data sources , techniques inherit by it sub techniques , means mitigating/ detecting the subtechniques can affect the technique (up ward flow from sub technique to technique)
+      - but procedure with softwares or groups dont inherit this behaviour , as it should be specific to sub technique or technique   not to both or else redundancy will be cerated
+
+
+5. Gropus- Known adeversaries flaged by govt , private entities can be therat groups , actor groups , campaigns
+
+6 .Software - Used by adversaries, includes TOOLS(PsExec, Metasploit , Mimikatz ,net , netstat etc) and MALWARE(PlugX , CHOPSTICK , Contii etc) 
+7. Mitigation - Generic resolution addressing specific techniues and sub techniques
+8 . Version - Each object like , software , grous , techniques , sub techniques , mitigation , releases etc gettng changed if any related change on functionality required
+
+
+
+what makes technique and sub techniques
+-----------------------------------------
+- naming (technique - higher broader level , where as sub-technique more specific, ex signed binary execution T and rundll32.exe Sub T )
+- level of absratction , techniques can have genereric for all with less technical details , ex- web facing apps or Genereirc forall with bit more details  like process injection describing details with sub techniques
+- based on technical reference, cross platform , platform agnostic , 
+- based on adversary use- which are reported , non reported , under reported etc , based on this defense can be prioritized 
+- Distinction 
+     objective - sheduled task can be both for persistance or DIscovery so objective defines the techniques here
+     Action - Process injection and Dll SideLoading same action but diffrenet execution
+     Use - Based on APT groups , credential dumping (T1003) popular , cliip borad data theft (T1115) less popular
+     Requiremenets - Overlap of same requirements like API , registry ,file , locations, permission etc makes simialr technique or non similar technique
+     Detection - Different telemetry leads to diffrent techniques , like DGA based C2 (T1568.002) network based and  Powershell execution (T1059.001) shell log based detection
+     Mitigation - Singed Binary Execution (T1218) (prevented by app allowlisting), Bootkit (T1542.003) (prevented by secre boot)
+
+how new techniques , sub-techniques are getting added
+-----------------------
+Based on the behavior , mitigation , detection , utility (software , malware etc) , it can be decided whether new technique , or existing technique's subtechniques needed or an updation needed.
+
+- also will it help security professionals and their attacking and defending strategies , also based on how they will implemet the strategy also helps in decision making.
+------------------------------------------------------
+Analysis key points-
+
+- Based on adversaries use on these techniques or sub techniques also a key decision factor
+- Group based procedure and tool/software based procedure should be tracked separately , ex - cobalt strike performs process injection and a group is utilising process injection technques are two separte performance
+- ex- also adcersariy action based attacks need to analysed properly , ex - c2 communicatiion over http 8088 can fall under 1) non starndard port use 2) exfiltration over http /web protocol sub technique of application layer protocol
+- different groups known by different names so we need to be sure 
+- Ungrouped activity still useful for analysis with proper refernce
+
+ex - process injection - Has multiple sub techniques as process hollowing , dll loading , using high privilege  process to occupy its memory , create new process hooking etc , as the behaviour actively followed by adversary groups
+
+ex - Sql Injection - Although a major problem but due to software vulnerability it is not mentioned under specific technique rather than can come under inital access , valid account , related to public facing application 
+ 
+
+
+
+
+
+
+
+
+
+
+
+References :
+https://github.com/tidalcyber/cyber-threat-profiling
+https://attack.mitre.org/docs/ATTACK_Design_and_Philosophy_March_2020.pdf
