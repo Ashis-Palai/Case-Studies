@@ -1,0 +1,200 @@
+Threat Intelligence
+------------------
+
+CART - Completeness ,Accuracy, Relevance, Timeliness
+
+What is the Threat
+What is the impact , how to mitigate
+--- Context and Action are the keys
+
+Context - Includes Diamond models features with cyber kill chain action phases with enough evidence to plan an action and mitigation
+           ex- APT X targeting power grid sector using so so tools , during their recon phase then , using powershell to exploit vulnerability CVE-XXXX 
+           
+Action -
+- technical evidence (contextulized IOCS), comprising details about the therat actor indicators
+- policy to protect from these types of attack
+- behavioural analysis to hunt similar behaviour.
+- data collection suggestions to strengthen the analysis and mitigation
+- theray scope and risk based analysis to support in strategic decision
+
+Threat Behaviour Analysis :
+unknown location , time mismatch , exceess data exfiltartion , insdier threat handling unrelated files
+
+Example Action:
+- Monitor and bock ip ranges from XX.XX - XX.XX as per logs and reports from XYZ 
+- Patches MS-1234 should be applied based on exploitation of vulnerabiloity CVE-31411
+- The adversary targeting power plant , utilising SMB V1 for privilege esacation , SMBv1 traffic an unnecessary permission should be revoked , only unit X nd Y should be communicating with in network thriugh SMB
+- Sources(XYZ) says powershell execution is frequent for the attack , so monitoring spawing of powershell is must, better to disable if ncessary
+
+Concious Non -action (aka FUD busting (fear,uncertainty , doubt))
+------------
+not acting on every news on exploitation unless reliable sources produces the evidence , saving resources , time
+
+Diffrent Reports
+------------
+Tactical - Aiming to SOC and IR team - Potentiaal IOcs from different sources of investigation
+                                     - Technical details or proof on networks and host to monitor and block
+                                     - Malware analysis and reverse engineering details to be included for monitoring in detail (API calls , particlaur serviices , DLLS etc)
+
+Operational - Aiming for IR leardership , Network defender etc
+                                    - campaign history
+                                    - Description about behaviours and various TTPS (spearphising with multi payload , spwaning xyz process for credential dump,then installing backdoor etc etc)
+Strategic - Aiming for CISO and equivalent - Intent ,Including Business impact ,, victimology , all business related details affected by adversaries etc
+
+
+
+----------------
+Detect - detect through therat behaviour analytics also short life spanned IOCS can be included
+
+Respond- With help of threat intel , adversary dwell time reduced and mitigation is quicker having some initial idea where to start
+
+Prevent- 
+         - Archtectural decison and tech procurement, gaps and coverage
+         - Improved data collection releted to adversary which can aid in investigation and detetction
+         - Risk prioritization and adversary performance measurement (blue team & red team) assessment
+         - Educate users with real stories about attack and mitigation and how to report or detect these types of attack
+         - Build therat models based on actual real world examples not hypothetical scenarios
+
+
+-------------------------
+ICS Industrial control system ThREAT categories:
+
+- Direct -- Adv grp who directly imapct (CRASHOVERRIDE)
+-Interersted -- who are gathering information , not disrupting (ex- DragonFly)
+-Indirect  --Wannay cry have not impacted but has potential or capability
+
+------- 
+Threat Intel products
+ key elements
+    - Data sources (which can related to organization domain specific attacks or related info)
+    - Contextaul awareness (Customer or organization's business  to help mapping the intelligence to core business area )   
+    -Action Relevance (customers operation to recommend proper action for mitigation and monitoring , attack holes)
+          
+---------------
+Vulnerabiity asessment ,impact , thereat aware ness and mitigation ,
+--------------
+Good Threat Intelligence measurement
+
+CART - Completeness , Accuracy , Relevenace, Timeliness
+
+1)Completeness  - - host , network , malware ,vulnerability , all possible domain analysis 
+                - Vulnerability ananysis , CWE analysis , technical indetification , and mitigation 
+                -Non Cyber factors -  Geopolitical info , which can lead to potential attacks
+
+2)Accuracy : 
+Depends on verified souces 
+    -Threat Intel feeds (commercial -FireEye, Recorded Future,mandiant, Open source INT-Alient Vault OTX,IPDB)
+    - Internal data (Own logging tools and platforms , like splunk , elk,,Firewall logs , EDR)
+    - Govnt & Industry Sources (CISA, NSA , MITRE ATT&CK, ISAC, FS-ISACS, E-ISACS)    
+    - more sources confirm the indicators or procedure more it will aid in trust and accuracy
+
+Updated knowlwedge on Indetified Issues:
+   - Upto date information and updated information lead to time saving startegies 
+
+Time Bound Threat intelligence:
+    - it should mention the time limit or update the time limit to prevent chasing behind out adted or not occuring threat
+
+
+3) Relevance:
+   - sources should be related to the field or sector , rather than aiming for genertoc information of all types of therat(ex- F ISAC for finance , H-ISAC for Health), Internal team soc , SIEM etc can help to provide more sources
+   - Contextual knowledge trowards the industry needed (ex- Retail sector realted alerts should have retail knowlwdge to underrtsna the therat)
+   - CustomerFeedback - (Pin pointed , relevant therat intel from both direction needed, with proper discussion and feedback , quality of theart intel can be enhanced )
+
+4) Timeliness:
+   - fast and accurate machine implemeted reports to respective teams ,SOC and executives (not a lengthy and time consuming report to be digested by respective teams)
+   - Fast details from Vendoe , Govnent feeds or public feeds ,and disseminating to respective teams , fast and accurare details
+   - Threat action taken immediately , with out holding back for more technical report , as first action should patch or take required mitigation startegy then follow up intelligence questions with more detailed report once its realeased
+
+
+--------------------------------------------------------
+
+
+
+THREAT INTELLIGNECE ANALYSIS 
+-----------------------
+MAPPING TO TTP from various reports:
+
+- We need to undertand the behaviour from the reports and try to do some research to understand what adversaries actually doing
+- Reasech on their verb part (did this , did that , utlised this , executed this etc)
+- Find technical details or meaning of the services , ports , protocols , as much as possible from a reserach point of view
+- After enough reserach we need to try to translate the behaviour towards a TACTICS (total 14)
+- Then we need to map it to respective technique and sub technique , some times subtechniques can be mapped to multiple tactics , ex - DLL side loading , can be related to , persistance , defense evasion , privilege escalation - as respective dlls can be ovrwritten to perform desired action
+- Not every behaviour of an adversary leads a technqie or sub technique , and not necessarily all behaviour should be flagged to alert , some behaviours also possibly not documneted in MITRE ATT&CK , if we have enough evidence from blog post or any technical post we can refer them to MITRE to be documented
+- To map to technique and subtechnique we can play a trade off between them to find suitable one sometimes procedure gives better idea and also a generic serach with behavioural details from the blog can also aid in understanding
+- For refernce we can refer to MITRE teams' mapping stretegy from "Techniques Used" section 
+
+
+useful informations and refernces for Threat Intelligence related topics:
+
+Reporting format widely used 
+ref - https://verisframework.org/index.html
+
+Data Bearch Investigation Report (VERIS fommat)- https://www.verizon.com/business/resources/reports/dbir/
+
+2024 report - https://www.verizon.com/business/resources/Te3/reports/2024-dbir-data-breach-investigations-report.pdf
+
+https://github.com/mitre/cti (MITRE CTI REPO)
+https://attack.mitre.org/resources/updates/ (changes and updates wrt previous version)
+https://mitre-attack.github.io/attack-navigator/ (hosted by Mitre) 
+https://github.com/mitre-attack/attack-navigator (manual implementation)
+https://attack.mitre.org/resources/attack-data-and-tools/ (tools and utilities similar to attack navigator)
+https://github.com/mitre-attack/attack-scripts/tree/master/scripts (python scripts to fetch techniques) 
+https://medium.com/@olafhartong/assess-your-data-potential-with-att-ck-datamap-f44884cfed11 (asses data with data map , an analytical way to map and prioritize data, processes , ttps etc)
+https://nsacyber.github.io/unfetter/ (a mapper and defense analytics documentation tool for defender , CTI etc )
+https://github.com/rabobank-cdc/DeTTECT (anoter defense boosting tool  ) 
+https://github.com/atc-project/atomic-threat-coverage (actionable analytics)
+https://eqllib.readthedocs.io/en/latest/analytics.html (analytical mapping with TTPS to MITRE)
+https://github.com/SigmaHQ/sigma/tree/master/rules (detection rules)
+-----------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           
