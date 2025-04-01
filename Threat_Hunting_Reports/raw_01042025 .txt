@@ -1,0 +1,20 @@
+CYBER THREAT INTELLIGENCE ANALYSIS
+-----------------------------------
+- Biases in CTI:
+    -- User biase (interpretation by user )
+          - Novelty (focusing towards recent biases), 
+          -Availability (What we recall or avilabale to us not focusing towards which we dont recall )
+    -- source biase (from the sources we are refering like , vendor repoort , blogs, govnt reports etc)
+          - Visibility  (what is being shown on logs or sources , not focusing towards notlogged or not reported or stealthy therat or IOcs)
+          - Availability (Focusing on eailsy avilabe sources rather than ignoring the closed sources or other sources which wera are not familiar with)       
+          - Victim biase (based on reports towards specific victims like major or wellknown company and theiraffected sectors not focusing on other industry)
+          - Novelty (sources reported about newly emerging therats focusing more towards them rather than risk based old therats)
+
+Hedging the Biases:
+    -- Collaborate with peers and groups for diversifying the thinking and mitigating novelty and avilability user biases
+    -- Diverify sources , Caliberated and Adjusted sources , prioritizing known vs unknown are good practices for source based biases         
+
+
+----------------------
+MITRE SEARCH BASED MAPPING SCRIPT
+https://colab.research.google.com/drive/1fqd-S1Gcy0eEihYuq7PhO96VW2uJoULe#scrollTo=Ryg2I7zXh8-c
