@@ -1,0 +1,68 @@
+Detailed knowledge of global cyber threats, threat actors, and the tactics, techniques and procedures used by cyber adversaries, specifically those targeting the financial services sector. 
+
+Ability to leverage threat intelligence reporting to support threat detection efforts. 
+
+large scale information technology implementations and operations preferred.
+to produce concise, refined, written threat intelligence assessments and briefings. 
+
+conduct risk assessments, and implement security measures to protect sensitive data and infrastructure.
+
+Threat intelligence activities include tracking current and emerging threats covering cyber crime and various forms of malicious exploitation.
+Contribute to the enhancement of security policies, procedures, and guidelines.
+
+produce intelligence that is consumed by several groups within Arctic Wolf. Your threat intelligence work will also make its way into the core of many detections
+Proficient in analyzing and deriving intelligence from phishing and malware campaigns, vulnerabilities being exploited in the wild, supply chain attacks, and data breaches
+
+Strong understanding of threat protection/detection tooling/stacks used for endpoint, network, and cloud: SIEM, TIP, SOAR, NGFW/NIPS/NIDS/NSM, UEBA/Security Analytics, XDR/EDR
+
+threat ecosystems, threat actor profiling, and intelligence tools.
+
+Experience in cyber threat monitoring, threat actor profiling, and digital risk analysis.
+
+Surveillance of marketplaces for illegal trade of sensitive data and exploits.
+- Monitoring document-sharing platforms for leaked corporate data.
+- Tracking code repositories for unauthorized leaks of proprietary software.
+
+Ransomware Risk Profiling & Attack Lifecycle Intelligence
+
+- Comprehensive analysis of ransomware threats targeting industries.
+- Risk assessments to prioritize security actions and mitigation strategies.
+- Identifying organizations compromised by ransomware gangs.
+- Tracking ransomware groups and their extortion tactics.
+
+ Threat Actor Search & Intelligence
+
+- Real-time monitoring of cybercriminal activities linked to organizations.
+- Profiling threat actors with detailed insights into hacking groups and methods.
+- Engaging with underground forums for intelligence gathering and early warnings.
+
+Early Breach Detection & Threat Prevention
+
+- Monitoring leaked credentials to detect breaches before escalation.
+- Alerting security teams to prevent unauthorized access and identity theft.
+- Tracking discussions of potential attacks to identify risks in advance.
+
+6. Confidential Data & Intellectual Property Protection
+
+- Detecting stolen documents on hidden file-sharing platforms.
+- Monitoring unauthorized code leaks in illicit repositories.
+- Issuing early alerts on intellectual property theft to prevent financial and reputational damage.
+
+Encrypted Channel Intelligence
+
+- Monitoring encrypted communication groups used by cybercriminals for data leaks and illicit activities.
+- Tracking ransomware gangs and stolen credential discussions on private channels.
+- Gaining early insights into underground cybercrime trends
+
+
+sandbox intelligence
+ISAC (info sharing analysis centre)
+feedly (news)
+
+SOAR - Security Orchestration Automation Response
+domain , ip , dns -- pivoting with details orchestration 
+
+ref -
+https://medium.com/katies-five-cents/a-cyber-threat-intelligence-self-study-plan-part-2-d04b7a529d36
+https://www.domaintools.com/resources/blog/valuable-datasets-to-analyze-network-infrastructure-part-1/#valuable-artifacts
+https://www.domaintools.com/resources/blog/streamlining-adversary-infrastructure-hunting-with-soar/
